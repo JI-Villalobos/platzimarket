@@ -18,6 +18,8 @@ dependencies {
 
 	runtimeOnly 'org.postgresql:postgresql'
 
+	compile 'org.projectlombok:lombok:1.18.12'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
