@@ -1,6 +1,8 @@
 package com.platzimarket.persistence.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.tomcat.util.descriptor.web.InjectionTarget;
 
 import javax.persistence.*;
@@ -8,7 +10,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "compras")
-@Data
+@Getter
+@Setter
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
