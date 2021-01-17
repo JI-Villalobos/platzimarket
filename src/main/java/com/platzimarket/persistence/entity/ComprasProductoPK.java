@@ -1,7 +1,5 @@
 package com.platzimarket.persistence.entity;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -9,12 +7,27 @@ import java.io.Serializable;
 
 //This class contains the primary key from ComprasProductos we use @Embeddable annotation
 @Embeddable
-@Getter
-@Setter
+
 public class ComprasProductoPK implements Serializable {
 
     @Column(name = "id_compra")
     private Integer idCompra;
+
+    public Integer getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
 
     @Column(name = "id_producto")
     private  Integer idProducto;

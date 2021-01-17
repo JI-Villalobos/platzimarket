@@ -1,15 +1,10 @@
 package com.platzimarket.persistence.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name="productos")
-@Getter
-@Setter
+
 public class Producto {
 
     @Id
@@ -19,8 +14,72 @@ public class Producto {
 
     private String nombre;
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Column(name = "id_categoria")
     private Integer idCategoria;
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
+    }
+
+    public Double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(Double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public Integer getCantidadStock() {
+        return cantidadStock;
+    }
+
+    public void setCantidadStock(Integer cantidadStock) {
+        this.cantidadStock = cantidadStock;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
