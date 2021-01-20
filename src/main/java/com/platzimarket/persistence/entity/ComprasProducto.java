@@ -14,6 +14,10 @@ public class ComprasProducto {
 
     private Integer cantidad;
 
+    private Double total;
+
+    private Boolean estado;
+
     public ComprasProductoPK getId() {
         return id;
     }
@@ -46,10 +50,6 @@ public class ComprasProducto {
         this.estado = estado;
     }
 
-    private Double total;
-
-    private Boolean estado;
-
     @ManyToOne
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
@@ -57,4 +57,20 @@ public class ComprasProducto {
     @ManyToOne
     @JoinColumn(name = "id_producto", insertable = false, updatable = false)
     private Producto producto;
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 }

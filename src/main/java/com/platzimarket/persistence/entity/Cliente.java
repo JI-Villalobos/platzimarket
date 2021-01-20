@@ -15,6 +15,15 @@ public class Cliente {
 
     private String nombre;
 
+    private String apellidos;
+
+    private String celular;
+
+    private String direccion;
+
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+
     public Integer getId() {
         return id;
     }
@@ -55,15 +64,22 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    private String apellidos;
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
 
-    private String celular;
-
-    private String direccion;
-
-    @Column(name = "correo_electronico")
-    private String correoElectronico;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
 
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
 }
