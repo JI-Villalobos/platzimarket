@@ -14,7 +14,7 @@ public class Compra {
     private Integer idCompra;
 
     @Column(name = "id_cliente")
-    private String isCliente;
+    private String idCliente;
 
     private LocalDateTime fecha;
 
@@ -26,12 +26,12 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getIsCliente() {
-        return isCliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setIsCliente(String isCliente) {
-        this.isCliente = isCliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public LocalDateTime getFecha() {
@@ -79,4 +79,20 @@ public class Compra {
 
     @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> productos;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ComprasProducto> productos) {
+        this.productos = productos;
+    }
 }
