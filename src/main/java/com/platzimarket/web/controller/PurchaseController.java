@@ -2,10 +2,7 @@ package com.platzimarket.web.controller;
 
 import com.platzimarket.domain.Purchase;
 import com.platzimarket.domain.service.PurchaseService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +18,18 @@ public class PurchaseController {
     PurchaseService purchaseService;
 
     @GetMapping("/all")
-    @ApiOperation("Get all supermarket purchases")
+    @ApiOperation(value = "Get all supermarket purchases", authorizations = {
+            @Authorization(value = "JWT")
+    })
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<List<Purchase>> getAll(){
         return new ResponseEntity<>(purchaseService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/client/{clientId}")
-    @ApiOperation("Search purchases by id")
+    @ApiOperation(value = "Search purchases by id", authorizations = {
+            @Authorization(value = "JWT")
+    })
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "Purchase not found"),
@@ -40,7 +41,9 @@ public class PurchaseController {
     }
 
     @PostMapping ("/save")
-    @ApiOperation("Post a new purchase")
+    @ApiOperation(value = "Post a new purchase", authorizations = {
+            @Authorization(value = "JWT")
+    })
     @ApiResponse(code = 201, message = "Purchse created succesfully")
     public ResponseEntity save(@RequestBody Purchase purchase){
         return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
